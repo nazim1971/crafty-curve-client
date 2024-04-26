@@ -1,7 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 const Root = () => {
     return (
         <div>
-           This is root file 
+          <Outlet/>
         </div>
     );
 };
