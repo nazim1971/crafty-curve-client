@@ -7,11 +7,16 @@ import MyCarftList from "../Components/Navber/MyCarftList";
 import About from "../Components/Navber/About";
 import Login from "../Components/SignIn/Login";
 import Register from "../Components/SignIn/Register";
+import Private from "../PrivateRoute/Private";
+import ViewDetails from "../Components/ViewDetails/ViewDetails";
+import Error from "../Root/Error";
+
 
 const routes = createBrowserRouter([
     {
       path: "/",
       element: <Root/>,
+      errorElement: <Error/>,
       children:[
         {
           path: '/',
@@ -31,7 +36,7 @@ const routes = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About/>
+        element: <Private><About/></Private>
       },
       {
         path: '/login',
@@ -40,6 +45,10 @@ const routes = createBrowserRouter([
       {
         path: '/register',
         element: <Register/>
+      },
+      {
+        path: '/viewDetails',
+        element: <Private><ViewDetails/></Private>
       }
       ]
     },

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navber from "./Navber";
 
 
@@ -5,7 +6,7 @@ const AddCarftItem = () => {
     return (
         <div>
             <Navber/>
-            this is add carft
+            <Link to='/addItem'><button className="btn">Add Item</button></Link>
         </div>
     );
 };
