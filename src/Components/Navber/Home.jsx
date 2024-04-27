@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Navber from "./Navber";
 import Slider from "./Homepage/Slider";
 import Footer from "../Footer/Footer";
+import CraftItem from "./Homepage/CraftItem";
 
 const Home = () => {
+    const creaftItem = useLoaderData()
     return (
         <div>
            <Navber/>
@@ -13,8 +15,13 @@ const Home = () => {
             </h1>
             <Slider/>
            </div>
+           <div className="grid grid-cols-3">
+            {
+                creaftItem.map(i=> <CraftItem key={i._id} i={i} /> )
+            }
+           </div>
            <h1>THhi is the one mosrt famous thing i ever seen</h1> 
-           <Link to='/viewDetails'><button className="btn btn-secondary">View details</button></Link>  
+            
            <Footer/>  
         </div>
     );

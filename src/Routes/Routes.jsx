@@ -10,6 +10,7 @@ import Register from "../Components/SignIn/Register";
 import Private from "../PrivateRoute/Private";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import Error from "../Root/Error";
+import UpdateData from "../Components/UpdateData/UpdateData";
 
 
 const routes = createBrowserRouter([
@@ -20,7 +21,8 @@ const routes = createBrowserRouter([
       children:[
         {
           path: '/',
-          element: <Home/>
+          element: <Home/>,
+          loader: ()=> fetch('http://localhost:5000/craftItems')
         },
       {
         path: '/artCraft',
@@ -28,11 +30,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/addItem',
-        element: <AddCarftItem/>
+        element: <Private><AddCarftItem/></Private>
       },
       {
         path: '/myCraft',
-        element: <MyCarftList/>
+        element: <Private><MyCarftList/></Private>
       },
       {
         path: '/about',
@@ -47,8 +49,14 @@ const routes = createBrowserRouter([
         element: <Register/>
       },
       {
-        path: '/viewDetails',
-        element: <Private><ViewDetails/></Private>
+        path: '/viewDetails/:id',
+        element: <Private><ViewDetails/></Private>,
+        loader: ({params})=> fetch(`http://localhost:5000/craftItems/${params.id}`)
+      },
+      {
+        path: '/updateData/:id',
+        element: <Private><UpdateData/></Private>,
+        loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`)
       }
       ]
     },
