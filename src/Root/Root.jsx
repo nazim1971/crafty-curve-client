@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Root = () => {
     return (
-        <div>
+        <div className="w-[92%] mx-auto">
           <Outlet/>
         </div>
     );

@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import Navber from "../Navber/Navber";
 import { toast, ToastContainer } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import Footer from "../Footer/Footer";
 
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
     const { login ,googleLogin, githubLogin} = useContext(AuthContext);
     // show password
     const [pass, setPass] = useState(false);
+    const location = useLocation();
   const navigate = useNavigate();
 
   const {
@@ -128,6 +130,7 @@ const Login = () => {
         </div>
       </div>
       <ToastContainer />
+      <Footer/>
         </div>
     );
 };

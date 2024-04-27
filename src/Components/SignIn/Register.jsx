@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navber from "../Navber/Navber";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -6,11 +6,13 @@ import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import Footer from "../Footer/Footer";
 
 const Register = () => {
   const { createUser,updateUserProfile } = useContext(AuthContext);
 // show password
     const [pass, setPass] = useState(false);
+    const location = useLocation();
   const navigate = useNavigate();
 
   const {
@@ -149,6 +151,7 @@ const Register = () => {
         </div>
       </div>
       <ToastContainer />
+      <Footer/>
     </div>
   );
 };
