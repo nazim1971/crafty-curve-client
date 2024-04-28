@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Navber from "../Navber/Navber";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-
+import Swal from "sweetalert2";
 
 const UpdateData = () => {
 
@@ -18,7 +18,8 @@ const UpdateData = () => {
         email,
         shortDescription,
         customization,
-        stockStatus
+        stockStatus,
+        photo
         } = updateData;
     console.log(updateData);
     const [selectedItem, setSelectedItem] = useState(customization)
@@ -44,7 +45,14 @@ const UpdateData = () => {
         if(data.modifiedCount){
             setSelectedItem(customization)
             setStockItem(stockStatus)
-            alert('Product Updated successfully')
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            
         }
         })
     }
@@ -123,6 +131,18 @@ const UpdateData = () => {
             {...register("rating" ,{ required: true })}
               type="text"
               defaultValue={rating}
+              placeholder="Type here"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          <label className="form-control w-full max-w-xs">
+            <div className="label">
+              <span className="label-text">Photo</span>
+            </div>
+            <input
+            {...register("photo" ,{ required: true })}
+              type="text"
+              defaultValue={photo}
               placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
             />

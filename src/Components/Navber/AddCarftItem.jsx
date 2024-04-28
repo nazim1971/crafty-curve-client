@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Navber from "./Navber";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddCarftItem = () => {
@@ -34,7 +35,13 @@ const AddCarftItem = () => {
         .then(res=> res.json())
         .then(data=> {console.log(data)
         if(data.insertedId){
-            alert('Product added successfully')
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
             reset()
         }
         })
@@ -119,6 +126,17 @@ const AddCarftItem = () => {
             </div>
             <input
             {...register("rating" ,{ required: true })}
+              type="text"
+              placeholder="Type here"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          <label className="form-control w-full max-w-xs">
+            <div className="label">
+              <span className="label-text">Photo</span>
+            </div>
+            <input
+            {...register("photo" ,{ required: true })}
               type="text"
               placeholder="Type here"
               className="input input-bordered w-full max-w-xs"

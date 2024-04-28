@@ -8,7 +8,6 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Footer from "../Footer/Footer";
 
-
 const Login = () => {
 
     const { login ,googleLogin, githubLogin} = useContext(AuthContext);
@@ -28,6 +27,7 @@ const Login = () => {
     login(email, password)
       .then(() => {
         toast.success("Login Successfully");
+       
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {

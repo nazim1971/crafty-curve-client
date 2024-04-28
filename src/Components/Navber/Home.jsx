@@ -3,6 +3,7 @@ import Navber from "./Navber";
 import Slider from "./Homepage/Slider";
 import Footer from "../Footer/Footer";
 import CraftItem from "./Homepage/CraftItem";
+import ArtCraftCategory from "./Homepage/ArtCraftCategory";
 
 const Home = () => {
     const creaftItem = useLoaderData()
@@ -20,7 +21,9 @@ const Home = () => {
                 creaftItem.map(i=> <CraftItem key={i._id} i={i} /> )
             }
            </div>
-           <h1>THhi is the one mosrt famous thing i ever seen</h1> 
+           <div>
+            <ArtCraftCategory/>
+           </div>
             
            <Footer/>  
         </div>
