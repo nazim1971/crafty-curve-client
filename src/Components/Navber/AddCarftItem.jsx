@@ -7,6 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const AddCarftItem = () => {
 
     const [selectedItem, setSelectedItem] = useState("no")
+    const [stockItem , setStockItem] = useState('inStock');
 
     const {user} = useContext(AuthContext)
     const email = user ? user.email : "";
@@ -20,6 +21,7 @@ const AddCarftItem = () => {
           } = useForm()
           const onSubmit = (data) => {
            data.customization = selectedItem;
+           data.stockStatus = stockItem;
             
             // send data to the server site
         fetch('http://localhost:5000/ownItem',{
@@ -45,8 +47,12 @@ const AddCarftItem = () => {
                 setSelectedItem(item);
                 
               };
-
               console.log(selectedItem);
+              const handleStockItem = (item) =>{
+                setStockItem(item)
+              }
+
+              console.log(stockItem);
 
 
 
@@ -131,6 +137,18 @@ const AddCarftItem = () => {
              
             </ul>
             </details>
+          <details className="dropdown">
+            <summary className="m-1 btn">stockStatus</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li><button required onClick={() => handleStockItem("inStock")}
+                 className={stockItem === "inStock" ? "selected-item" : ""}
+                >In stock</button></li>
+                <li><button required onClick={() => handleStockItem("madeToOrder")}
+                 className={stockItem === "madeToOrder" ? "selected-item" : ""}
+                >Made To Order</button></li>
+             
+            </ul>
+            </details>
           
           <label className="form-control w-full max-w-xs">
             <div className="label">
@@ -156,7 +174,7 @@ const AddCarftItem = () => {
               className="input input-bordered w-full max-w-xs"
             />
           </label>
-          <label className="form-control col-span-2 w-full ">
+          <label className="form-control  w-full ">
             <div className="label">
               <span className="label-text">short description</span>
             </div>

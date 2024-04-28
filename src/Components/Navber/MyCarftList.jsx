@@ -40,12 +40,13 @@ const MyCarftList = () => {
         <div>
             <Navber/>
            <div>
+           <h1 className="text-3xl">Thsi is my total data {item.length} </h1>
             {
             item.map((i,idx)=> <div className="p-5" key={i._id}>
                     <p className="text-2xl">Data No: {idx+1} </p>
-                    <p>Name: {i.name} </p>
-                    <p>Email: {i.userName} </p>
-                    <p>Product: {i.email} </p>
+                    <p>Item Name: {i.name} </p>
+                    <p>Name: {i.userName} </p>
+                    <p>Email: {i.email} </p>
                     <p>Coustomization: {i.customization} </p>
                     <p onClick={()=>handleDelete(i._id)} className="btn btn-secondary">Delete </p>
                    <Link to={`/updateData/${i._id}`}> <p  className="btn btn-warning">Update </p></Link>

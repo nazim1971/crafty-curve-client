@@ -21,11 +21,16 @@ const Navber = () => {
 
     const menu = <>
     <li > <NavLink  to='/'> Home </NavLink> </li>
-    <li > <NavLink  to='/artCraft'> Art & Craft </NavLink> </li>
-    <li > <NavLink  to='/addItem'>Add Craft Item </NavLink> </li>
-    <li > <NavLink  to='/myCraft'>My Craft List </NavLink> </li>
+    <li > <NavLink  to='/allArtCraft'>All Art & Craft </NavLink> </li>
     {
-        user && <li > <NavLink  to='/about'> About </NavLink> </li>
+      user && <li > <NavLink  to='/addItem'>Add Craft Item </NavLink> </li>
+    }
+    {
+       user && 
+        <li > <NavLink  to='/about'> About </NavLink> </li>
+    }
+    {
+      user &&  <li > <NavLink  to='/myCraft'>My Craft List </NavLink> </li>
     }
     </>
 

@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Navber from "../Navber/Navber";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -129,8 +130,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
       <Footer/>
+      <ToastContainer />
         </div>
     );
 };

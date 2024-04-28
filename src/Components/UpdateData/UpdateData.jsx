@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const UpdateData = () => {
 
-    const [selectedItem, setSelectedItem] = useState("no")
+    
 
     const updateData = useLoaderData()
     const {name,
@@ -17,17 +17,19 @@ const UpdateData = () => {
         rating,
         email,
         shortDescription,
-        customization
+        customization,
+        stockStatus
         } = updateData;
     console.log(updateData);
-
-
+    const [selectedItem, setSelectedItem] = useState(customization)
+    const [stockItem , setStockItem] = useState(stockStatus);    
     const {
         register,
         handleSubmit
       } = useForm();
       const onSubmit = (data) =>{
-        
+        data.customization = selectedItem;
+        data.stockStatus= stockItem;
         console.log(data);
         fetch(`http://localhost:5000/item/${updateData._id}`,{
             method: 'PUT',
@@ -41,6 +43,7 @@ const UpdateData = () => {
             console.log(data)
         if(data.modifiedCount){
             setSelectedItem(customization)
+            setStockItem(stockStatus)
             alert('Product Updated successfully')
         }
         })
@@ -49,7 +52,9 @@ const UpdateData = () => {
         setSelectedItem(item);
         
       };
-
+      const handleStockItem = (item) =>{
+        setStockItem(item)
+      }
       console.log(selectedItem);
 
 
@@ -126,12 +131,25 @@ const UpdateData = () => {
           <details className="dropdown">
             <summary className="m-1 btn">customization</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                <li><button  onClick={() => handleItemClick("yes")}
+                <li><button onClick={() =>handleItemClick("yes")}
                  className={selectedItem === "yes" ? "selected-item" : ""}
                 >Yes</button></li>
                 <li><button  onClick={() => handleItemClick("no")}
                  className={selectedItem === "no" ? "selected-item" : ""}
                 >No</button></li>
+             
+            </ul>
+            </details>
+
+            <details className="dropdown">
+            <summary className="m-1 btn">stockStatus</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li><button required onClick={() => handleStockItem("inStock")}
+                 className={stockItem === "inStock" ? "selected-item" : ""}
+                >In stock</button></li>
+                <li><button required onClick={() => handleStockItem("madeToOrder")}
+                 className={stockItem === "madeToOrder" ? "selected-item" : ""}
+                >Made To Order</button></li>
              
             </ul>
             </details>
@@ -160,7 +178,7 @@ const UpdateData = () => {
               className="input input-bordered w-full max-w-xs"
             />
           </label>
-          <label className="form-control col-span-2 w-full ">
+          <label className="form-control  w-full ">
             <div className="label">
               <span className="label-text">short description</span>
             </div>

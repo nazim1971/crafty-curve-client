@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Root/Root";
 import Home from "../Components/Navber/Home";
-import ArtCarft from "../Components/Navber/ArtCarft";
 import AddCarftItem from "../Components/Navber/AddCarftItem";
 import MyCarftList from "../Components/Navber/MyCarftList";
 import About from "../Components/Navber/About";
@@ -11,6 +10,8 @@ import Private from "../PrivateRoute/Private";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import Error from "../Root/Error";
 import UpdateData from "../Components/UpdateData/UpdateData";
+import AllArtCraft from "../Components/Navber/Homepage/AllArtCraft";
+import AllItemViewDetails from "../Components/ViewDetails/AllItemViewDetails";
 
 
 const routes = createBrowserRouter([
@@ -25,8 +26,9 @@ const routes = createBrowserRouter([
           loader: ()=> fetch('http://localhost:5000/craftItems')
         },
       {
-        path: '/artCraft',
-        element: <ArtCarft/>
+        path: '/allArtCraft',
+        element: <AllArtCraft/>,
+        loader: ()=> fetch('http://localhost:5000/item')
       },
       {
         path: '/addItem',
@@ -52,6 +54,11 @@ const routes = createBrowserRouter([
         path: '/viewDetails/:id',
         element: <Private><ViewDetails/></Private>,
         loader: ({params})=> fetch(`http://localhost:5000/craftItems/${params.id}`)
+      },
+      {
+        path: '/allItemViewDetails/:id',
+        element: <Private><AllItemViewDetails/></Private>,
+        loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
       },
       {
         path: '/updateData/:id',
