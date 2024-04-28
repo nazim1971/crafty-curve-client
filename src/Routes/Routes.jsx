@@ -12,6 +12,8 @@ import Error from "../Root/Error";
 import UpdateData from "../Components/UpdateData/UpdateData";
 import AllArtCraft from "../Components/Navber/Homepage/AllArtCraft";
 import AllItemViewDetails from "../Components/ViewDetails/AllItemViewDetails";
+import SubCategory from "../Components/Navber/Homepage/SubCategory";
+import SubCatDetails from "../Components/Navber/Homepage/SubCatDetails";
 
 
 const routes = createBrowserRouter([
@@ -64,6 +66,17 @@ const routes = createBrowserRouter([
         path: '/updateData/:id',
         element: <Private><UpdateData/></Private>,
         loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`)
+      },
+      {
+        path: '/subCategory/:id',
+        element: <SubCategory></SubCategory>,
+        loader: ({params})=> fetch(`http://localhost:5000/subCategory/${params.id}`)
+      },
+      {
+        path: '/subCatDetails/:id',
+        element: <SubCatDetails/>,
+        loader: ({params}) => fetch(`http://localhost:5000/subCat/${params.id}`)
+
       }
       ]
     },
