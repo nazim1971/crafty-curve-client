@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 const MyCarftList = () => {
   const { user } = useContext(AuthContext);
   const [item, setItem] = useState([]);
-//   const [filter, setFilter] = useState();
 
   useEffect(() => {
     fetch(`http://localhost:5000/myItem/${user.email}`)
@@ -17,13 +16,6 @@ const MyCarftList = () => {
       });
   }, [user]);
 
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/filter/${filter}`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setItem(data);
-//       });
-//   }, [filter]);
 
 
   // delete my item
@@ -64,22 +56,20 @@ const MyCarftList = () => {
 
   return (
     <div>
-      <Navber />
+      {/* <Navber /> */}
       <div className="flex justify-end">
-        {/* <details className="dropdown dropdown-end">
-          <summary className="m-1 btn">open or close</summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+        <details className="dropdown dropdown-end">
+          <summary className="m-1 btn"> Filter </summary>
+          {/* <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
              <li>
-              <button onClick={() => setFilter('yes')}>Yes</button>
+              <button onClick={() => handleFilter('yes')}>Yes</button>
             </li>
             <li>
-              <button onClick={() => setFilter('no')}>No</button>
+              <button onClick={() => handleFilter('no')}>No</button>
             </li>
-            <li>
-              <button onClick={() => setFilter('all')}>All</button>
-            </li>
-          </ul>
-        </details> */}
+            
+          </ul> */}
+        </details>
       </div>
       <div>
         <h1 className="text-3xl">Thsi is my total data {item.length} </h1>

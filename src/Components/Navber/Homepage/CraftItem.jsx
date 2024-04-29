@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+import { MdCategory } from "react-icons/md";
+import { MdPeopleAlt } from "react-icons/md";
 
 const CraftItem = ({i}) => {
     const {_id, category, title,material,details,artist, image} = i;
@@ -10,14 +12,21 @@ const CraftItem = ({i}) => {
         .then(data=>console.log(data))
     }
     return (
-        <div className="border p-3 m-3 ">
-            <img className="h-80 w-80" src={image} alt="" />
-           <p>Title: {title} </p>
-           <p> Category: {category} </p>
-           <p>Material: {material} </p>
-           <p> Details: {details} </p>
-           <p> Artist: {artist} </p>
-           <Link to={`/viewDetails/${_id}`} ><button onClick={()=> handleViewDetails(_id)} className="btn btn-secondary">View Details</button></Link>
+        <div className=" h-96 bg-cover rounded-2xl p-3 "  style={{
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(${image})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'}}>
+           
+           <div className="text-white mt-52 ">
+           <div className="space-y-1">
+           <p className="text-2xl font-semibold"> {title} </p>
+           <p className="flex gap-3"> <MdCategory className="text-green-500 text-2xl"/> <span className="text-[#ffffffce]">{category}</span> </p>
+           <p className="flex gap-3"> <MdPeopleAlt className="text-green-500 text-2xl"/> <span className="text-[#ffffffce]">{artist}</span> </p>
+           <div className="flex justify-end"><Link to={`/viewDetails/${_id}`} className="" ><button onClick={()=> handleViewDetails(_id)} className="btn bg-green-500 text-white border-none">View Details</button></Link></div>
+           </div>
+           </div>
+           
         </div>
     );
 };

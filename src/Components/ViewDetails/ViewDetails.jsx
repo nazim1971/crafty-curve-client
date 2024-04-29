@@ -1,16 +1,30 @@
 import { useLoaderData } from "react-router-dom";
-import Navber from "../Navber/Navber";
+import { SiMaterialformkdocs } from "react-icons/si";
+import { MdCategory, MdPeopleAlt } from "react-icons/md";
+import { FaDatabase } from "react-icons/fa6";
 
 const ViewDetails = () => {
     const viewDetails = useLoaderData()
+    const {_id, category, title,material,details,artist, image} = viewDetails;
     console.log(viewDetails);
     return (
         <div>
-            <Navber/>
-            <img className="h-96 " src={viewDetails.image} alt="" />
-            <p>
-            Total data : {viewDetails.category}
-            </p>
+            
+           <div className="grid gap-10 grid-cols-3 my-16">
+           <div className="col-span-2">
+            <img className="h-96 w-full rounded-2xl shadow-2xl " src={image} alt="" />
+            </div>
+            <div className="border p-3 border-green-500 rounded-2xl" >
+                <p className="text-3xl text-green-500  font-semibold mt-10 mb-6 "> {title} </p>
+                <hr />
+                <div className="space-y-4 mt-3">
+                <p className="flex gap-3 items-center"> <span><SiMaterialformkdocs className="text-green-500"/></span> <span className="text-[#0000009d] ">{material}</span></p>
+                <p className="flex gap-3"> <MdCategory className="text-green-500 text-2xl"/> <span className="text-[#0000009d] ">{category}</span> </p>
+           <p className="flex gap-3"> <MdPeopleAlt className="text-green-500 text-2xl"/> <span className="text-[#0000009d] ">{artist}</span> </p>
+           <p className="flex gap-3"> <FaDatabase className="text-green-500 text-3xl"/> <span className="text-[#0000009d] ">{details}</span> </p>
+                </div>
+            </div>
+           </div>
         </div>
     );
 };

@@ -24,35 +24,28 @@ const Slider = () => {
         pagination={{ clickable: true }}
       >
         <SwiperSlide >
-          <div 
-            className="h-80 w-full bg-cover rounded-2xl"
-            style={{
-              backgroundImage:
-                'url("https://i.ibb.co/XC8LzVD/Screenshot-2024-04-14-172814.png")',
-            }}
-          ></div>
+         <img className="h-80 w-full rounded-2xl" src="https://i.ibb.co/3WP6xKd/clay-2.jpg" 
+         alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+        <img
+            className="h-80 w-full rounded-2xl"
+            src="https://i.ibb.co/tLf6k6k/lion.jpg"
+            alt="slider-1"
+          />
+     
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="h-80 w-full rounded-2xl"
-            src="https://i.ibb.co/cQFBWS1/nobody-commercial-sky-financial-skyscraper-1.jpg
-"
+            src="https://i.ibb.co/FYfjC90/chocolate.jpg"
             alt="slider-1"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="h-80 w-full rounded-2xl"
-            src="https://i.ibb.co/NmktGNc/avi-werde-8-N46x-C5-Ym-KM-unsplash-1.jpg
-"
-            alt="slider-1"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            className="h-80 w-full rounded-2xl"
-            src="https://i.ibb.co/WGX0p9Y/bailey-anselme-Bkp3g-Lygye-A-unsplash-1.jpg
-"
+            src="https://i.ibb.co/48QTk4j/stone-wood.jpg"
             alt="slider-1"
           />
         </SwiperSlide>

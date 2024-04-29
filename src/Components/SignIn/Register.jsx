@@ -32,8 +32,28 @@ const Register = () => {
         message:
           "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long",
       });
-      return;
+      
     }
+
+    // if (!/(?=.*[a-z])/.test(password)) {
+    //   setError("password", {
+    //     type: "manual",
+    //     message: "Password must have at least one lowercase letter."
+    // })}
+    
+    // if (!/(?=.*[A-Z])/.test(password)) {
+    //   setError("password", {
+    //     type: "manual",
+    //     message:"Password must have at least one uppercase letter."
+    // })}
+    
+    // if (password.length < 6) {
+    //   setError("password", {
+    //     type: "manual",
+    //     message: "Password must be at least 6 characters long."
+    // })}
+
+    
 
     // create user
     createUser(email,password)
@@ -51,11 +71,13 @@ const Register = () => {
           toast.error("An error occurred");
         }
       });
+
+
   }
 
   return (
     <div>
-      <Navber />
+      {/* <Navber /> */}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
