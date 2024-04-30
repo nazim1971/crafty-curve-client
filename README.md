@@ -4,7 +4,7 @@ Welcome to CraftyCarve, your destination for exquisite sculptures and captivatin
 
 **Category: Sculpture and Modeling**
 
-**Website**: [CraftyCarve](https://www.craftycarve.com)
+**Website**: [CraftyCarve](https://crafty-carve.web.app/)
 
 ### Featured Sculpture Categories:
 1. **Clay Sculpture**
