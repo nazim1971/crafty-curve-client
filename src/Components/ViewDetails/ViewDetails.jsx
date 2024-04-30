@@ -11,10 +11,10 @@ const ViewDetails = () => {
         <div>
             
            <div className="grid gap-10 grid-cols-3 my-16">
-           <div className="col-span-2">
+           <div className="lg:col-span-2 col-span-3">
             <img className="h-96 w-full rounded-2xl shadow-2xl " src={image} alt="" />
             </div>
-            <div style={{backgroundImage: 'url(https://i.ibb.co/m6vYv9V/bg-png-removebg-preview.png)'}} className="border bg-cover p-3 border-green-500 bg-white rounded-2xl" >
+            <div style={{backgroundImage: 'url(https://i.ibb.co/m6vYv9V/bg-png-removebg-preview.png)'}} className="border bg-cover p-3 border-green-500 bg-white rounded-2xl col-span-3 md:col-span-2 lg:col-span-1" >
                 <p className="text-3xl   font-semibold mt-10 mb-6 "> {title} </p>
                 <hr />
                 <div className="space-y-4 mt-3">

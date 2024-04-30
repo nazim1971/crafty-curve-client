@@ -9,7 +9,7 @@ const AllItemViewDetails = () => {
   return (
     <div>
       <div data-aos="fade-right" className="grid grid-cols-3 gap-10  my-20">
-        <div className="col-span-2">
+        <div className="lg:col-span-2 col-span-3">
           <img
             className="h-96 w-full rounded-2xl "
             src={allItemViewDetails.photo}
@@ -21,7 +21,7 @@ const AllItemViewDetails = () => {
             backgroundImage:
               "url(https://i.ibb.co/WDK6bxs/green-halftone-border-background.jpg)",
           }}
-          className="border p-3 rounded-2xl  bg-cover border-green-500 pt-14"
+          className="border col-span-3 md:col-span-2 lg:col-span-1 p-3 rounded-2xl  bg-cover border-green-500 pt-14"
         >
           <p className="text-2xl font-bold my-5 ">{allItemViewDetails.name} </p>
           <hr />

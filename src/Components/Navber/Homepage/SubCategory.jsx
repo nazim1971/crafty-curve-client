@@ -16,7 +16,7 @@ const SubCategory = () => {
     },[id])
     return (
         <div>
-            <div className="grid grid-cols-3 gap-5 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-20">
                 {
                     subCat.map(i=>  <div key={i._id} className="p-3 flex flex-col justify-end h-[450px] rounded-2xl shadow-xl" style={{
                         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(${i.image})`,
