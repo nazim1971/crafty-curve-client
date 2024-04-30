@@ -81,7 +81,7 @@ const UpdateData = () => {
             <div className="w-[92%] mx-auto my-20">
       <form onSubmit={handleSubmit(onSubmit)} >
         <div className="grid grid-cols-2 gap-5">
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold ">Item Name</span>
             </div>
@@ -90,10 +90,10 @@ const UpdateData = () => {
             defaultValue={name}
               type="text"
               placeholder="Type here"
-              className="input border-green-500  input-bordered w-full max-w-xs"
+              className="input border-green-500  input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">subcategory Name</span>
             </div>
@@ -102,10 +102,10 @@ const UpdateData = () => {
               type="text"
               defaultValue={subcategoryName}
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">processing time</span>
             </div>
@@ -114,10 +114,10 @@ const UpdateData = () => {
               type="text"
               defaultValue={processingTime}
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">price</span>
             </div>
@@ -126,11 +126,11 @@ const UpdateData = () => {
               type="text"
               defaultValue={price}
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
           
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">rating</span>
             </div>
@@ -139,10 +139,10 @@ const UpdateData = () => {
               type="text"
               defaultValue={rating}
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">Photo</span>
             </div>
@@ -151,12 +151,12 @@ const UpdateData = () => {
               type="text"
               defaultValue={photo}
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
           
           <details className="dropdown">
-            <summary className="m-1 btn">customization</summary>
+            <summary className="m-1 btn bg-red-500 text-white">customization</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li><button onClick={() =>handleItemClick("yes")}
                  className={selectedItem === "yes" ? "selected-item" : ""}
@@ -169,7 +169,7 @@ const UpdateData = () => {
             </details>
 
             <details className="dropdown">
-            <summary className="m-1 btn">stockStatus</summary>
+            <summary className="m-1 btn bg-red-500 text-white">stockStatus</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li><button onClick={() => handleStockItem("inStock")}
                  className={stockItem === "inStock" ? "selected-item" : ""}
@@ -181,7 +181,7 @@ const UpdateData = () => {
             </ul>
             </details>
           
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">User Name</span>
             </div>
@@ -190,10 +190,10 @@ const UpdateData = () => {
             value={userName}
               type="text"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">User Email</span>
             </div>
@@ -202,10 +202,10 @@ const UpdateData = () => {
             value={email}
               type="email"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control  w-full ">
+          <label className="form-control  w-full col-span-2 ">
             <div className="label">
               <span className="label-text font-semibold">short description</span>
             </div>

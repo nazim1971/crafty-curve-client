@@ -24,7 +24,7 @@ const CraftItem = ({i}) => {
  
 
     return (
-        <div data-aos="fade-right" className=" h-96 flex flex-col justify-end bg-cover rounded-2xl p-3 "  style={{
+        <div data-aos="fade-right" data-aos-delay="300" className=" h-96 flex flex-col justify-end bg-cover rounded-2xl p-3 "  style={{
             backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(${image})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

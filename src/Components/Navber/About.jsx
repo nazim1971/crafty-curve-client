@@ -78,7 +78,7 @@ import {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 gap-10 w-[92%] mx-auto ">
               {/* card 1 */}
             <div
-              data-aos-delay="500"
+              data-aos-delay="300"
               data-aos="fade-up"
               className="h-96 space-y-5  rounded-3xl p-8 shadow-2xl"
             >
@@ -93,7 +93,7 @@ import {
             </div>
               {/* card-2 */}
             <div
-              data-aos-delay="600"
+              data-aos-delay="300"
               data-aos="fade-up"
               className="h-96 space-y-5  rounded-3xl p-8 shadow-2xl"
             >
@@ -108,7 +108,7 @@ import {
             </div>
            {/* card - 3 */}
             <div
-              data-aos-delay="700"
+              data-aos-delay="300"
               data-aos="fade-up"
               className="h-96 space-y-5 md:col-span-2 lg:col-span-1 rounded-3xl p-8 shadow-2xl"
             >

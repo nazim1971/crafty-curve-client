@@ -65,7 +65,7 @@ const AddCarftItem = () => {
             <div className="my-20">
       <form onSubmit={handleSubmit(onSubmit)} >
         <div className="grid grid-cols-2 gap-5">
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control col-span-2 md:col-span-1 w-full ">
             <div className="label">
               <span className="label-text font-semibold">Item Name</span>
             </div>
@@ -73,10 +73,10 @@ const AddCarftItem = () => {
             {...register("name" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1 ">
             <div className="label">
               <span className="label-text font-semibold">subcategory Name</span>
             </div>
@@ -84,10 +84,10 @@ const AddCarftItem = () => {
             {...register("subcategoryName" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">processing time</span>
             </div>
@@ -95,10 +95,10 @@ const AddCarftItem = () => {
             {...register("processingTime" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">price</span>
             </div>
@@ -106,11 +106,11 @@ const AddCarftItem = () => {
             {...register("price" ,{ required: true })}
               type="number"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
           
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">rating</span>
             </div>
@@ -118,10 +118,10 @@ const AddCarftItem = () => {
             {...register("rating" ,{ required: true })}
               type="number"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">Photo</span>
             </div>
@@ -129,7 +129,7 @@ const AddCarftItem = () => {
             {...register("photo" ,{ required: true })}
               type="text"
               placeholder="Photo Url"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
           
@@ -158,7 +158,7 @@ const AddCarftItem = () => {
             </ul>
             </details>
           
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">User Name</span>
             </div>
@@ -167,10 +167,10 @@ const AddCarftItem = () => {
             value={userName}
               type="text"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full col-span-2 md:col-span-1">
             <div className="label">
               <span className="label-text font-semibold">User Email</span>
             </div>
@@ -179,7 +179,7 @@ const AddCarftItem = () => {
             value={email}
               type="email"
               placeholder="Type here"
-              className="input border-green-500 input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
           <label className="form-control col-span-2  w-full ">

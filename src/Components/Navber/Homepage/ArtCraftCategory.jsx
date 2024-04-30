@@ -24,10 +24,10 @@ const ArtCraftCategory = () => {
     return (
         <div>
             
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                
                {
-                subCat.slice(0,6).map(i=>  <div data-aos="fade-right" key={i._id} className="card  bg-base-100 shadow-xl">
+                subCat.slice(0,6).map(i=>  <div data-aos-delay="300" data-aos="fade-right"  key={i._id} className="card  bg-base-100 shadow-xl">
                 <figure><img className="h-80 w-full" src={i.image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="text-2xl font-semibold"> {i.subcategoryName} </h2>
