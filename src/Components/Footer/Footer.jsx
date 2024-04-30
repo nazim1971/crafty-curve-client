@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div>
          <div
-      className="bg-[#262626]  mt-16  "
+      className="bg-[#262626]  mt-44  "
       
     >
       <div className=" ">

@@ -1,12 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Navber from "../Navber/Navber";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import Footer from "../Footer/Footer";
 
 const Register = () => {
   const { createUser,updateUserProfile } = useContext(AuthContext);
@@ -24,34 +22,32 @@ const Register = () => {
   const onSubmit = (data) => {
     const {email,password,name,photo} = data
 
-    // Password validation
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-    if (!passwordRegex.test(password)) {
+
+    // password validation
+    if (password.length < 6) {
       setError("password", {
         type: "manual",
-        message:
-          "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long",
-      });
-      
-    }
-
-    // if (!/(?=.*[a-z])/.test(password)) {
-    //   setError("password", {
-    //     type: "manual",
-    //     message: "Password must have at least one lowercase letter."
-    // })}
+        message: "Password must be at least 6 characters long."
+    })
+    return
+  }
+    if (!/(?=.*[a-z])/.test(password)) {
+      setError("password", {
+        type: "manual",
+        message: "Password must have at least one lowercase letter."
+    })
+  return
+  }
     
-    // if (!/(?=.*[A-Z])/.test(password)) {
-    //   setError("password", {
-    //     type: "manual",
-    //     message:"Password must have at least one uppercase letter."
-    // })}
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setError("password", {
+        type: "manual",
+        message:"Password must have at least one uppercase letter."
+    })
+    return
+  }
     
-    // if (password.length < 6) {
-    //   setError("password", {
-    //     type: "manual",
-    //     message: "Password must be at least 6 characters long."
-    // })}
+   
 
     
 
@@ -77,10 +73,15 @@ const Register = () => {
 
   return (
     <div>
-      {/* <Navber /> */}
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div style={{backgroundImage: "url(https://i.ibb.co/MGbq5WN/art.jpg)"}} className="hero min-h-screen  my-20">
+      
+        <div className="hero-content  flex-col ">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold">Hello!</h1>
+          <h1 className="font-semibold text-3xl">Register to Get Started</h1>
+        </div>
+          <div className="card shrink-0 w-full p-3 max-w-sm shadow-2xl bg-base-100 ">
+            
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -90,7 +91,7 @@ const Register = () => {
                   {...register("name", { required: true })}
                   type="text"
                   placeholder="Your Full Name"
-                  className="input input-bordered"
+                  className="input border-green-500 input-bordered"
                 />
                 {errors.name && (
                   <span className="text-red-600 text-center font-semibold p-1">
@@ -106,7 +107,7 @@ const Register = () => {
                   {...register("email", { required: true })}
                   type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input border-green-500 input-bordered"
                 />
                 {errors.email && (
                   <span className="text-red-600 text-center font-semibold p-1">
@@ -122,7 +123,7 @@ const Register = () => {
                   {...register("photo", { required: true })}
                   type="text"
                   placeholder="Photo Url"
-                  className="input input-bordered"
+                  className="input border-green-500 input-bordered"
                 />
                 {errors.photo && (
                   <span className="text-red-600 text-center font-semibold p-1">
@@ -139,7 +140,7 @@ const Register = () => {
                     {...register("password", { required: true })}
                     type={pass ? "text" : "password"}
                     placeholder="Enter password"
-                    className="input input-bordered"
+                    className="input border-green-500 input-bordered"
                   />
 
                   <a onClick={() => setPass(!pass)} className="">
@@ -152,19 +153,19 @@ const Register = () => {
                   </span>
                 )}
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <a href="#" className="label-text-alt text-green-500 link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+              <div className="form-control mt-3">
+                <button className="btn bg-green-500 text-white">Register</button>
               </div>
             </form>
-            <div className="p-3 m-3">
+            <div className="text-center mb-3">
               <p>
                 Already have an account?{" "}
-                <Link className="btn" to="/login">
+                <Link className="text-green-500" to="/login">
                   Login
                 </Link>{" "}
               </p>
@@ -173,7 +174,6 @@ const Register = () => {
         </div>
       </div>
       <ToastContainer />
-      <Footer/>
     </div>
   );
 };

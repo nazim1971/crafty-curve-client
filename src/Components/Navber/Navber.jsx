@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
-
+import "animate.css";
 
 
 const Navber = () => {
@@ -21,13 +21,14 @@ const Navber = () => {
 
     const menu = <>
     <li > <NavLink  to='/'> Home </NavLink> </li>
-    <li > <NavLink  to='/allArtCraft'>All Art & Craft </NavLink> </li>
+    <li > <NavLink  to='/about'> About </NavLink> </li>
     {
       user && <li > <NavLink  to='/addItem'>Add Craft Item </NavLink> </li>
     }
     {
        user && 
-        <li > <NavLink  to='/about'> About </NavLink> </li>
+       <li > <NavLink  to='/allArtCraft'>All Art & Craft </NavLink> </li>
+        
     }
     {
       user &&  <li > <NavLink  to='/myCraft'>My Craft List </NavLink> </li>
@@ -35,19 +36,23 @@ const Navber = () => {
     </>
 
     // dark and light mode 
-    const [theme,setTheme] = useState('light');
-    useEffect(()=>{
-        localStorage.setItem('theme',theme)
-        const localTheme = localStorage.getItem('theme')
-        document.querySelector('html').setAttribute('data-theme',localTheme)
-    },[theme])
-    const handleToggle = e =>{
-        if(e.target.checked){
-            setTheme('synthwave')
-        }else{
-            setTheme('light')
-        }
-    }
+    const [theme, setTheme] = useState(() => {
+      const storedTheme = localStorage.getItem('light');
+      return storedTheme || 'light';
+  });
+  
+  useEffect(() => {
+      localStorage.setItem('theme', theme);
+      document.querySelector('html').setAttribute('data-theme', theme);
+  }, [theme]);
+  
+  const handleToggle = (e) => {
+      if (e.target.checked) {
+          setTheme('synthwave');
+      } else {
+          setTheme('light');
+      }
+  };
 
     return (
         <div>
@@ -61,7 +66,12 @@ const Navber = () => {
        {menu}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"> <img className="h-10 w-10" src="https://i.ibb.co/C2Rx4rg/website-logo-removebg-preview.png" alt="website-logo" /> Crafty Carve</a>
+    <Link to='/' className="btn btn-ghost text-xl"> <img className="h-10 w-10 animate__animated animate__pulse  animate__infinite" src="https://i.ibb.co/C2Rx4rg/website-logo-removebg-preview.png" alt="website-logo" />  <a>
+                Crafty
+                <span>
+                  Carv<a className="text-green-500 font-semibold ">e</a>
+                </span>
+              </a></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -71,7 +81,7 @@ const Navber = () => {
   </div>
   <div className="navbar-end">
 
-  <label className="swap swap-rotate">
+  <label className="swap mr-4 swap-rotate">
   
   {/* this hidden checkbox controls the state */}
   <input onChange={handleToggle} type="checkbox" value='synthwave' />
@@ -99,8 +109,8 @@ const Navber = () => {
                   alt=""
                 />
                 </a>
-                <Tooltip className="light" anchorSelect="#clickable" clickable>
-                    <p>{user.displayName} </p>
+                <Tooltip  anchorSelect="#clickable" clickable>
+                    <p >{user.displayName} </p>
                 <button
                 onClick={handleSignOut}
                 className="btn bg-red-600 text-white"

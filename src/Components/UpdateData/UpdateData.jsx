@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import Navber from "../Navber/Navber";
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const UpdateData = () => {
@@ -22,17 +21,27 @@ const UpdateData = () => {
         photo
         } = updateData;
     console.log(updateData);
+
     const [selectedItem, setSelectedItem] = useState(customization)
-    const [stockItem , setStockItem] = useState(stockStatus);    
+    const [stockItem , setStockItem] = useState(stockStatus); 
+
+  
+
     const {
         register,
         handleSubmit
       } = useForm();
+
+      useEffect(() => {
+    }, [customization, stockStatus]);
+
       const onSubmit = (data) =>{
+
+        
         data.customization = selectedItem;
         data.stockStatus= stockItem;
         console.log(data);
-        fetch(`http://localhost:5000/item/${updateData._id}`,{
+        fetch(`https://crafty-carve-server.vercel.app/item/${updateData._id}`,{
             method: 'PUT',
             headers: {
                 "content-type": "application/json"
@@ -68,83 +77,81 @@ const UpdateData = () => {
 
     return (
         <div>
-            <Navber/>
 
-            <div>
-      <h1 className="text-3xl">Add Item</h1>
+            <div className="w-[92%] mx-auto my-20">
       <form onSubmit={handleSubmit(onSubmit)} >
         <div className="grid grid-cols-2 gap-5">
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Item Name</span>
+              <span className="label-text font-semibold ">Item Name</span>
             </div>
             <input
             {...register("name" ,{ required: true })}
             defaultValue={name}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500  input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">subcategory Name</span>
+              <span className="label-text font-semibold">subcategory Name</span>
             </div>
             <input
             {...register("subcategoryName" ,{ required: true })}
               type="text"
               defaultValue={subcategoryName}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">processing time</span>
+              <span className="label-text font-semibold">processing time</span>
             </div>
             <input
             {...register("processingTime" ,{ required: true })}
               type="text"
               defaultValue={processingTime}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">price</span>
+              <span className="label-text font-semibold">price</span>
             </div>
             <input
             {...register("price" ,{ required: true })}
               type="text"
               defaultValue={price}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">rating</span>
+              <span className="label-text font-semibold">rating</span>
             </div>
             <input
             {...register("rating" ,{ required: true })}
               type="text"
               defaultValue={rating}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Photo</span>
+              <span className="label-text font-semibold">Photo</span>
             </div>
             <input
             {...register("photo" ,{ required: true })}
               type="text"
               defaultValue={photo}
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           
@@ -164,10 +171,10 @@ const UpdateData = () => {
             <details className="dropdown">
             <summary className="m-1 btn">stockStatus</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                <li><button required onClick={() => handleStockItem("inStock")}
+                <li><button onClick={() => handleStockItem("inStock")}
                  className={stockItem === "inStock" ? "selected-item" : ""}
                 >In stock</button></li>
-                <li><button required onClick={() => handleStockItem("madeToOrder")}
+                <li><button  onClick={() => handleStockItem("madeToOrder")}
                  className={stockItem === "madeToOrder" ? "selected-item" : ""}
                 >Made To Order</button></li>
              
@@ -176,41 +183,41 @@ const UpdateData = () => {
           
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User Name</span>
+              <span className="label-text font-semibold">User Name</span>
             </div>
             <input
             {...register("userName")}
             value={userName}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User Email</span>
+              <span className="label-text font-semibold">User Email</span>
             </div>
             <input
             {...register("email")}
             value={email}
               type="email"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control  w-full ">
             <div className="label">
-              <span className="label-text">short description</span>
+              <span className="label-text font-semibold">short description</span>
             </div>
             <input
             {...register("shortDescription" ,{ required: true })}
               type="text"
               defaultValue={shortDescription}
               placeholder="Type here"
-              className="input  input-bordered w-full "
+              className="input border-green-500 input-bordered w-full "
             />
           </label>
-          <input className="btn col-span-2 w-full bg-red-500 my-8" type="submit" value="Update item" />
+          <input className="btn text-white col-span-2 w-full bg-green-500 my-8" type="submit" value="Update item" />
         </div>
       </form>
 

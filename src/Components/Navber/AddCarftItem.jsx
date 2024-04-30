@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import Navber from "./Navber";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import "animate.css";
 
 
 const AddCarftItem = () => {
@@ -25,7 +25,7 @@ const AddCarftItem = () => {
            data.stockStatus = stockItem;
             
             // send data to the server site
-        fetch('http://localhost:5000/ownItem',{
+        fetch('https://crafty-carve-server.vercel.app/ownItem',{
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -46,7 +46,6 @@ const AddCarftItem = () => {
         }
         })
            
-            console.log(data);
             }
 
             const handleItemClick = (item) => {
@@ -59,92 +58,83 @@ const AddCarftItem = () => {
                 setStockItem(item)
               }
 
-              console.log(stockItem);
 
-
-
-
-    
-
-       
 
     return (
         <div>
-            <Navber/>
-            <div>
-      <h1 className="text-3xl">Add Item</h1>
+            <div className="my-20">
       <form onSubmit={handleSubmit(onSubmit)} >
         <div className="grid grid-cols-2 gap-5">
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Item Name</span>
+              <span className="label-text font-semibold">Item Name</span>
             </div>
             <input
             {...register("name" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">subcategory Name</span>
+              <span className="label-text font-semibold">subcategory Name</span>
             </div>
             <input
             {...register("subcategoryName" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">processing time</span>
+              <span className="label-text font-semibold">processing time</span>
             </div>
             <input
             {...register("processingTime" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">price</span>
+              <span className="label-text font-semibold">price</span>
             </div>
             <input
             {...register("price" ,{ required: true })}
-              type="text"
+              type="number"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">rating</span>
+              <span className="label-text font-semibold">rating</span>
             </div>
             <input
             {...register("rating" ,{ required: true })}
-              type="text"
+              type="number"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Photo</span>
+              <span className="label-text font-semibold">Photo</span>
             </div>
             <input
             {...register("photo" ,{ required: true })}
               type="text"
-              placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              placeholder="Photo Url"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           
           <details className="dropdown">
-            <summary className="m-1 btn">customization</summary>
+            <summary className="m-1 btn bg-red-500 text-white animate__animated animate__pulse  animate__infinite">customization</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li><button required onClick={() => handleItemClick("yes")}
                  className={selectedItem === "yes" ? "selected-item" : ""}
@@ -156,7 +146,7 @@ const AddCarftItem = () => {
             </ul>
             </details>
           <details className="dropdown">
-            <summary className="m-1 btn">stockStatus</summary>
+            <summary className="m-1 btn bg-red-500 text-white animate__animated animate__pulse  animate__infinite">stockStatus</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                 <li><button required onClick={() => handleStockItem("inStock")}
                  className={stockItem === "inStock" ? "selected-item" : ""}
@@ -170,40 +160,40 @@ const AddCarftItem = () => {
           
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User Name</span>
+              <span className="label-text font-semibold">User Name</span>
             </div>
             <input
             {...register("userName")}
             value={userName}
               type="text"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">User Email</span>
+              <span className="label-text font-semibold">User Email</span>
             </div>
             <input
             {...register("email")}
             value={email}
               type="email"
               placeholder="Type here"
-              className="input input-bordered w-full max-w-xs"
+              className="input border-green-500 input-bordered w-full max-w-xs"
             />
           </label>
-          <label className="form-control  w-full ">
+          <label className="form-control col-span-2  w-full ">
             <div className="label">
-              <span className="label-text">short description</span>
+              <span className="label-text font-semibold ">short description</span>
             </div>
             <input
             {...register("shortDescription" ,{ required: true })}
               type="text"
               placeholder="Type here"
-              className="input  input-bordered w-full "
+              className="input border-green-500  input-bordered w-full "
             />
           </label>
-          <input className="btn col-span-2 w-full bg-red-500 my-8" type="submit" value="Add Item" />
+          <input className="btn bg-green-500 col-span-2 w-full text-white my-8" type="submit" value="Add Item" />
         </div>
       </form>
 

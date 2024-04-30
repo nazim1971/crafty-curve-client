@@ -25,12 +25,12 @@ const routes = createBrowserRouter([
         {
           path: '/',
           element: <Home/>,
-          loader: ()=> fetch('http://localhost:5000/craftItems')
+          loader: ()=> fetch('https://crafty-carve-server.vercel.app/craftItems')
         },
       {
         path: '/allArtCraft',
-        element: <AllArtCraft/>,
-        loader: ()=> fetch('http://localhost:5000/item')
+        element: <Private><AllArtCraft/></Private> ,
+        loader: ()=> fetch('https://crafty-carve-server.vercel.app/item')
       },
       {
         path: '/addItem',
@@ -55,27 +55,27 @@ const routes = createBrowserRouter([
       {
         path: '/viewDetails/:id',
         element: <Private><ViewDetails/></Private>,
-        loader: ({params})=> fetch(`http://localhost:5000/craftItems/${params.id}`)
+        loader: ({params})=> fetch(`https://crafty-carve-server.vercel.app/craftItems/${params.id}`)
       },
       {
         path: '/allItemViewDetails/:id',
         element: <Private><AllItemViewDetails/></Private>,
-        loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
+        loader: ({params}) => fetch(`https://crafty-carve-server.vercel.app/item/${params.id}`)
       },
       {
         path: '/updateData/:id',
         element: <Private><UpdateData/></Private>,
-        loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`)
+        loader: ({params})=> fetch(`https://crafty-carve-server.vercel.app/item/${params.id}`)
       },
       {
         path: '/subCategory/:id',
-        element: <SubCategory></SubCategory>,
-        loader: ({params})=> fetch(`http://localhost:5000/subCategory/${params.id}`)
+        element: <Private><SubCategory></SubCategory></Private>,
+        loader: ({params})=> fetch(`https://crafty-carve-server.vercel.app/subCategory/${params.id}`)
       },
       {
         path: '/subCatDetails/:id',
-        element: <SubCatDetails/>,
-        loader: ({params}) => fetch(`http://localhost:5000/subCat/${params.id}`)
+        element: <Private><SubCatDetails/></Private>,
+        loader: ({params}) => fetch(`https://crafty-carve-server.vercel.app/subCat/${params.id}`)
 
       }
       ]

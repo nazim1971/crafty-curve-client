@@ -15,7 +15,7 @@ const SubCatDetails = () => {
             
             <div className="grid grid-cols-3 gap-10  my-20">
             <div className="col-span-2"><img className="h-96 w-full rounded-2xl " src={subDetails.image} alt="" /></div>
-            <div className="border p-3 rounded-2xl border-green-500 pt-14">
+            <div style={{backgroundImage: 'url(https://i.ibb.co/m6vYv9V/bg-png-removebg-preview.png)'}} className="border bg-cover p-3 rounded-2xl border-green-500 bg-white pt-14">
                                 <p className="text-2xl font-bold my-5 ">{subDetails.itemName} </p>
                                 <hr />
                                 <div className="space-y-3 mt-5"><p className="flex gap-2 items-center"> <FaDollarSign className="text-green-500" /> {subDetails.price} </p>
