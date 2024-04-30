@@ -20,14 +20,12 @@ const MyCarftList = () => {
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
-        console.log(data, 'this is the oen');
         setFilteredItems(data);
       });
   }, [user]);
 
   // delete my item
   const handleDelete = (_id) => {
-    console.log(_id);
 
     Swal.fire({
       title: "Are you sure?",

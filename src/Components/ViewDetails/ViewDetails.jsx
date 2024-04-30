@@ -6,7 +6,6 @@ import { FaDatabase } from "react-icons/fa6";
 const ViewDetails = () => {
     const viewDetails = useLoaderData()
     const { category, title,material,details,artist, image} = viewDetails;
-    console.log(viewDetails);
     return (
         <div>
             

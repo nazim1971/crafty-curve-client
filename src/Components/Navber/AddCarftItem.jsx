@@ -53,7 +53,6 @@ const AddCarftItem = () => {
                 setSelectedItem(item);
                 
               };
-              console.log(selectedItem);
               const handleStockItem = (item) =>{
                 setStockItem(item)
               }

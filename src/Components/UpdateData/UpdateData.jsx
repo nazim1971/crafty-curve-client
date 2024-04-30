@@ -20,7 +20,6 @@ const UpdateData = () => {
         stockStatus,
         photo
         } = updateData;
-    console.log(updateData);
 
     const [selectedItem, setSelectedItem] = useState(customization)
     const [stockItem , setStockItem] = useState(stockStatus); 
@@ -72,7 +71,6 @@ const UpdateData = () => {
       const handleStockItem = (item) =>{
         setStockItem(item)
       }
-      console.log(selectedItem);
 
 
     return (
